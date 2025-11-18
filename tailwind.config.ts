@@ -107,6 +107,10 @@ export default {
           "0%, 100%": { boxShadow: "0 0 20px hsla(43, 74%, 49%, 0.3)" },
           "50%": { boxShadow: "0 0 40px hsla(43, 74%, 49%, 0.6)" },
         },
+        "draw-line": {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
         "slide-up": {
           "0%": { transform: "translateY(20px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
@@ -122,6 +126,13 @@ export default {
         "shimmer": "shimmer 3s linear infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "slide-up": "slide-up 0.6s ease-out",
+        "draw-line": "draw-line 1.5s ease-out",
+      },
+      scale: {
+        '103': '1.03',
+      },
+      perspective: {
+        '1000': '1000px',
       },
     },
   },
