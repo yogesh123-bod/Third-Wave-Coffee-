@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ShoppingCart, Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import thirdWaveLogo from '@/assets/third-wave-logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,12 +41,14 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-12 h-12 bg-gradient-coffee rounded-full flex items-center justify-center transition-smooth group-hover:shadow-gold">
-              <span className="text-cream text-xl font-bold">☕</span>
-            </div>
-            <span className="font-heading text-2xl font-bold text-gradient-gold hidden sm:block">
-              Brew Moments
+          <a href="#" className="flex items-center gap-3 group">
+            <img 
+              src={thirdWaveLogo} 
+              alt="Third Wave Coffee" 
+              className="w-12 h-12 object-contain transition-smooth group-hover:scale-105"
+            />
+            <span className="font-heading text-xl font-bold text-foreground hidden sm:block uppercase tracking-wide">
+              Third Wave Coffee
             </span>
           </a>
 
