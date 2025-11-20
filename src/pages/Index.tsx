@@ -6,6 +6,7 @@ import Bestsellers from '@/components/Bestsellers';
 import CoffeeQuiz from '@/components/CoffeeQuiz';
 import CafeLocator from '@/components/CafeLocator';
 import CoffeeReels from '@/components/CoffeeReels';
+import ImageGallery from '@/components/ImageGallery';
 import FloatingCart from '@/components/FloatingCart';
 import Footer from '@/components/Footer';
 
@@ -21,6 +22,7 @@ const Index = () => {
         <CoffeeQuiz />
         <CafeLocator />
         <CoffeeReels />
+        <ImageGallery />
       </main>
       <Footer />
       <FloatingCart />
