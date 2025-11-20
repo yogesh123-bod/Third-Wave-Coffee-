@@ -1,55 +1,18 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ShoppingCart, X, Plus, Minus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+import { useCart } from '@/contexts/CartContext';
 
 const FloatingCart = () => {
+  const navigate = useNavigate();
+  const { cartItems, updateQuantity, removeItem, totalItems, totalPrice } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const [shake, setShake] = useState(false);
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: 1,
-      name: 'Premium Blend Coffee',
-      price: 899,
-      quantity: 2,
-      image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=100&h=100&fit=crop'
-    },
-    {
-      id: 2,
-      name: 'Gift Box Deluxe',
-      price: 2499,
-      quantity: 1,
-      image: 'https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?w=100&h=100&fit=crop'
-    }
-  ]);
-
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   const triggerShake = () => {
     setShake(true);
     setTimeout(() => setShake(false), 500);
-  };
-
-  const updateQuantity = (id: number, change: number) => {
-    setCartItems(items =>
-      items.map(item =>
-        item.id === id
-          ? { ...item, quantity: Math.max(0, item.quantity + change) }
-          : item
-      ).filter(item => item.quantity > 0)
-    );
-  };
-
-  const removeItem = (id: number) => {
-    setCartItems(items => items.filter(item => item.id !== id));
   };
 
   return (
@@ -146,7 +109,15 @@ const FloatingCart = () => {
                 <span className="text-lg font-medium text-foreground">Total</span>
                 <span className="text-2xl font-bold text-accent">₹{totalPrice}</span>
               </div>
-              <Button variant="premium" size="lg" className="w-full">
+              <Button
+                variant="premium"
+                size="lg"
+                className="w-full"
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('/checkout');
+                }}
+              >
                 Checkout
               </Button>
             </div>

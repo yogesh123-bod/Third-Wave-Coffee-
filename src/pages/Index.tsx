@@ -4,7 +4,7 @@ import PremiumGifts from '@/components/PremiumGifts';
 import CoffeeJourney from '@/components/CoffeeJourney';
 import Bestsellers from '@/components/Bestsellers';
 import CoffeeQuiz from '@/components/CoffeeQuiz';
-import CafeLocator from '@/components/CafeLocator';
+import MapLocator from '@/components/MapLocator';
 import CoffeeReels from '@/components/CoffeeReels';
 import ImageGallery from '@/components/ImageGallery';
 import FloatingCart from '@/components/FloatingCart';
@@ -20,7 +20,7 @@ const Index = () => {
         <CoffeeJourney />
         <Bestsellers />
         <CoffeeQuiz />
-        <CafeLocator />
+        <MapLocator />
         <CoffeeReels />
         <ImageGallery />
       </main>
