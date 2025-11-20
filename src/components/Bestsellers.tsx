@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ShoppingCart, Eye, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { useCart } from '@/contexts/CartContext';
 import {
   Dialog,
   DialogContent,
@@ -14,8 +12,6 @@ import {
 } from '@/components/ui/dialog';
 
 const Bestsellers = () => {
-  const navigate = useNavigate();
-  const { addToCart } = useCart();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const products = [
@@ -23,7 +19,7 @@ const Bestsellers = () => {
       id: 1,
       name: 'Ethiopian Yirgacheffe',
       origin: 'Ethiopia',
-      price: 899,
+      price: '$24',
       rating: 4.9,
       reviews: 234,
       flavor: 'Floral, Citrus, Tea-like',
@@ -33,7 +29,7 @@ const Bestsellers = () => {
       id: 2,
       name: 'Colombian Supremo',
       origin: 'Colombia',
-      price: 849,
+      price: '$22',
       rating: 4.8,
       reviews: 189,
       flavor: 'Caramel, Nutty, Balanced',
@@ -43,7 +39,7 @@ const Bestsellers = () => {
       id: 3,
       name: 'Sumatra Mandheling',
       origin: 'Indonesia',
-      price: 949,
+      price: '$26',
       rating: 4.7,
       reviews: 156,
       flavor: 'Earthy, Chocolate, Herbal',
@@ -53,7 +49,7 @@ const Bestsellers = () => {
       id: 4,
       name: 'Costa Rican Tarrazu',
       origin: 'Costa Rica',
-      price: 879,
+      price: '$23',
       rating: 4.9,
       reviews: 201,
       flavor: 'Clean, Bright, Crisp',
@@ -198,14 +194,8 @@ const Bestsellers = () => {
                 </div>
 
                 <div className="flex items-center justify-between pt-2 border-t border-border">
-                  <span className="font-heading text-2xl font-bold text-accent">₹{product.price}</span>
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                  >
-                    View Details
-                  </Button>
+                  <span className="font-heading text-2xl font-bold text-accent">{product.price}</span>
+                  <span className="text-sm text-muted-foreground capitalize">{product.roast} Roast</span>
                 </div>
               </div>
 
@@ -215,15 +205,7 @@ const Bestsellers = () => {
                   hoveredCard === index ? 'translate-y-0' : 'translate-y-full'
                 }`}
               >
-                <Button 
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-                  onClick={() => addToCart({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=100&h=100&fit=crop'
-                  })}
-                >
+                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                   <ShoppingCart className="w-4 h-4 mr-2" />
                   Quick Add
                 </Button>
