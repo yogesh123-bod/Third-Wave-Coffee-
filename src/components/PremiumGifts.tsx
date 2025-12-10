@@ -1,40 +1,42 @@
 import { useState } from 'react';
-import { Gift, Star, TrendingUp, Heart, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Gift, Star, TrendingUp, Heart, Sparkles, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import giftBox1 from '@/assets/gift-box-1.jpg';
-import giftBox2 from '@/assets/gift-box-2.jpg';
-import giftBox3 from '@/assets/gift-box-3.jpg';
+import { useCart } from '@/contexts/CartContext';
+import premiumGiftBoxes from '@/assets/premium-gift-boxes.png';
 
 const PremiumGifts = () => {
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const giftBoxes = [
     {
-      id: 1,
+      id: 11,
       name: 'Luxury Signature Collection',
-      price: '$129',
-      image: giftBox1,
+      price: 1290,
+      image: premiumGiftBoxes,
       tag: 'Bestseller',
       icon: TrendingUp,
       description: 'Premium coffee with artisan chocolates',
       rating: 4.9,
     },
     {
-      id: 2,
+      id: 12,
       name: 'Coffee Connoisseur Set',
-      price: '$179',
-      image: giftBox3,
+      price: 1790,
+      image: premiumGiftBoxes,
       tag: 'For Coffee Lovers',
       icon: Heart,
       description: 'Six single-origin blends with tasting notes',
       rating: 5.0,
     },
     {
-      id: 3,
+      id: 13,
       name: 'Artisan Brew Kit',
-      price: '$199',
-      image: giftBox2,
+      price: 1990,
+      image: premiumGiftBoxes,
       tag: 'Festive Special',
       icon: Sparkles,
       description: 'Complete brewing set with premium accessories',
@@ -145,17 +147,28 @@ const PremiumGifts = () => {
 
                   {/* Price & Button */}
                   <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <span className="font-heading text-3xl font-bold text-accent">{box.price}</span>
-                    <Button
-                      size="sm"
-                      className={`transition-smooth ${
-                        hoveredCard === index
-                          ? 'bg-accent text-accent-foreground translate-y-0 opacity-100'
-                          : 'translate-y-2 opacity-0'
-                      }`}
-                    >
-                      Add to Cart
-                    </Button>
+                    <span className="font-heading text-3xl font-bold text-accent">₹{box.price}</span>
+                    <div className="flex gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => navigate(`/product/${box.id}`)}
+                        className={`transition-smooth ${
+                          hoveredCard === index ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+                        }`}
+                      >
+                        View
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => addToCart({ id: box.id, name: box.name, price: box.price, image: box.image })}
+                        className={`transition-smooth ${
+                          hoveredCard === index ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+                        }`}
+                      >
+                        <ShoppingCart className="w-4 h-4" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </Card>

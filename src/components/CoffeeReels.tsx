@@ -5,25 +5,25 @@ const reels = [
     id: 1,
     title: 'Perfect Pour',
     thumbnail: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=800&fit=crop',
-    videoUrl: 'https://cdn.pixabay.com/video/2020/07/30/45913-447087366_large.mp4'
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4'
   },
   {
     id: 2,
     title: 'Coffee Beans',
     thumbnail: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&h=800&fit=crop',
-    videoUrl: 'https://cdn.pixabay.com/video/2021/02/23/66061-516550942_large.mp4'
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
   },
   {
     id: 3,
     title: 'Latte Art',
     thumbnail: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&h=800&fit=crop',
-    videoUrl: 'https://cdn.pixabay.com/video/2017/08/10/11296-229605956_large.mp4'
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4'
   },
   {
     id: 4,
     title: 'Brewing Magic',
     thumbnail: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&h=800&fit=crop',
-    videoUrl: 'https://cdn.pixabay.com/video/2019/07/22/25381-349876498_large.mp4'
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4'
   }
 ];
 
