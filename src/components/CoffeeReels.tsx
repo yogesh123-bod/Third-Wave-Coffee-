@@ -5,25 +5,25 @@ const reels = [
     id: 1,
     title: 'Perfect Pour',
     thumbnail: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=800&fit=crop',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4'
+    youtubeId: 'xyf4LeY_8P8'
   },
   {
     id: 2,
     title: 'Coffee Beans',
     thumbnail: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&h=800&fit=crop',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
+    youtubeId: 'bbbaWS0lwPw'
   },
   {
     id: 3,
     title: 'Latte Art',
     thumbnail: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&h=800&fit=crop',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4'
+    youtubeId: 'vfebPiO4tZw'
   },
   {
     id: 4,
     title: 'Brewing Magic',
     thumbnail: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&h=800&fit=crop',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4'
+    youtubeId: 'yLj92qYnVCk'
   }
 ];
 
@@ -46,32 +46,34 @@ const CoffeeReels = () => {
               key={reel.id}
               className="group relative aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-coffee-light/20 to-coffee-medium/20 dark:from-coffee-dark/40 dark:to-coffee-medium/30 shadow-soft hover:shadow-elegant transition-all duration-500"
             >
-              {/* Video/Thumbnail */}
+              {/* YouTube Embed */}
               <div className="absolute inset-0 overflow-hidden">
-                <video
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster={reel.thumbnail}
-                >
-                  <source src={reel.videoUrl} type="video/mp4" />
-                </video>
+                <iframe
+                  className="w-full h-full scale-150 transition-transform duration-700 group-hover:scale-[1.7]"
+                  src={`https://www.youtube.com/embed/${reel.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${reel.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`}
+                  title={reel.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-coffee-dark/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-coffee-dark/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none" />
               </div>
 
               {/* Play Icon Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <a 
+                href={`https://youtube.com/shorts/${reel.youtubeId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+              >
                 <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center shadow-glow backdrop-blur-sm">
                   <Play className="w-8 h-8 text-accent-foreground fill-current ml-1" />
                 </div>
-              </div>
+              </a>
 
               {/* Title */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 pointer-events-none z-10">
                 <h3 className="font-heading text-lg font-bold text-cream drop-shadow-lg">
                   {reel.title}
                 </h3>

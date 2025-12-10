@@ -4,7 +4,9 @@ import { Gift, Star, TrendingUp, Heart, Sparkles, ShoppingCart } from 'lucide-re
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useCart } from '@/contexts/CartContext';
-import premiumGiftBoxes from '@/assets/premium-gift-boxes.png';
+import giftBox1 from '@/assets/gift-box-1.jpg';
+import giftBox2 from '@/assets/gift-box-2.jpg';
+import giftBox3 from '@/assets/gift-box-3.jpg';
 
 const PremiumGifts = () => {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const PremiumGifts = () => {
       id: 11,
       name: 'Luxury Signature Collection',
       price: 1290,
-      image: premiumGiftBoxes,
+      image: giftBox1,
       tag: 'Bestseller',
       icon: TrendingUp,
       description: 'Premium coffee with artisan chocolates',
@@ -26,7 +28,7 @@ const PremiumGifts = () => {
       id: 12,
       name: 'Coffee Connoisseur Set',
       price: 1790,
-      image: premiumGiftBoxes,
+      image: giftBox2,
       tag: 'For Coffee Lovers',
       icon: Heart,
       description: 'Six single-origin blends with tasting notes',
@@ -36,7 +38,7 @@ const PremiumGifts = () => {
       id: 13,
       name: 'Artisan Brew Kit',
       price: 1990,
-      image: premiumGiftBoxes,
+      image: giftBox3,
       tag: 'Festive Special',
       icon: Sparkles,
       description: 'Complete brewing set with premium accessories',
